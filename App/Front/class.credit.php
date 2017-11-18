@@ -14,10 +14,11 @@ class Vietmcn_front_credit
         $out .= '<p>Các thành phần bên trong plugins đc tổng hợp từ những câu hỏi, <br/> của các thành viên trong nhóm Wordpress.<br/>
             Sẽ liên tục được cập nhật và bổ sung theo thời gian.</p>';
         $out .= '</div>';
-        $out .= '<a target="_blank" href="//facebook.com/Vietmcn-120069061984349/?ref=bookmarks">fb//Vietmcn-120069061984349/?ref=bookmarks</a> <br/>';
         $out .= '<a target="_blank" href="//vietmcn.com/wordpress#">Site://Vietmcn.com</a><br/>';
+        $out .= '<a target="_blank" href="//facebook.com/Vietmcn-120069061984349/?ref=bookmarks">fb:Vietmcn-120069061984349/?ref=bookmarks</a> <br/>';
+        $out .= '<a target="_blank" href="//github.com/vietmcn/vietmcn-plugins">git:github.com/vietmcn/vietmcn-plugins</a> <br/>';
         $out .= 'Đặt câu hỏi vui lòng gữi tại đây <a target="_blank" href="//vietmcn.com/vietmcn-plugins#">//vietmcn.com/vietmcn-plugins#</a> <br/> <br/>';
-        $out .= 'Email: thuthuat_wp@vietmcn.com - Vietmcn © 2017';
+        $out .= 'thuthuat_wp@vietmcn.com - Vietmcn © 2017';
         return $out;
     }
 }

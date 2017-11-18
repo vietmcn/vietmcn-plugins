@@ -10,7 +10,7 @@ class Vietmcn_removebar_boots extends Vietmcn_models
             //not think
         }
     }
-    public static function get_bar( $options )
+    public static function get_bar_option( $options )
     {
         $remove_bar = ( isset( $options['remove_bar'] ) ) ? $options['remove_bar'] : '';
 

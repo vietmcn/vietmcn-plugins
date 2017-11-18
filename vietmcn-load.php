@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: Vietmcn+
-Plugin URI: 
+Plugin URI: https://vietmcn.com/wordpress-plugins
 Description: Tập hợp các add-on mở rộng dành cho Wordpress
 Author URI: https://vietmcn.com/tags/wordpress
 Version: 1.0

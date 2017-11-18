@@ -41,7 +41,7 @@ class Vietmcn_front_option
         //render
         $out  = '<article id="page1" class="show top">';
         $out .= Vietmcn_time_boots::get_time_option( $vietmcn_option );
-        $out .= Vietmcn_removebar_boots::get_bar( $vietmcn_option );
+        $out .= Vietmcn_removebar_boots::get_bar_option( $vietmcn_option );
         $out .= '<button type="submit"> Lưu Lại</button>';
         $out .= '</article>';
         echo $out;

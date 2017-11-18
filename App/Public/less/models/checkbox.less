@@ -3,6 +3,14 @@
   input[type=checkbox] {
     display: none!important;
   }
+  span.cbx {
+    display: inline-block;
+  }
+  span.lbl {
+    i {
+      margin-right: 5px;
+    }
+  }
 }
 .cbx {
     position: relative;
@@ -37,13 +45,13 @@
     vertical-align: middle;
     cursor: pointer;
   }
-  #cbx:checked ~ .cbx {
+  .cntr input:checked ~ .cbx {
     border-color: transparent;
     background: #6871f1;
     animation: jelly 0.6s ease;
     margin-right: 0px;
   }
-  #cbx:checked ~ .cbx:after {
+  .cntr input:checked ~ .cbx:after {
     opacity: 1;
     transform: rotate(45deg) scale(1);
   }
