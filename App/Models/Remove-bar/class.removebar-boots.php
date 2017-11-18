@@ -15,11 +15,14 @@ class Vietmcn_removebar_boots extends Vietmcn_models
         $remove_bar = ( isset( $options['remove_bar'] ) ) ? $options['remove_bar'] : '';
 
         return Vietmcn_field::get_field( array(
-            'options' => $remove_bar,
+            'option_checked' => $remove_bar,
             'option_key' => 'remove_bar',
             'option_bg' => 'rgb(197, 69, 58)',
             'option_icon' => 'ion-minus',
-            'option_field_type' => 'checkbox',
+            'option_field_type' => array( 
+                'checkbox' => true,
+            ),
+            'option_field_title' => 'Tùy chọn hiển thị',
             'title' => 'Ẩn thanh Adminbar',
             'desc' => 'Models khi bật lên sẽ ẩn thanh Adminbar của Wordpress.',
             'desc_popup' => 'Mặc định là không',
