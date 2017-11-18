@@ -33,8 +33,8 @@ if ( ! class_exists(  'Vietmcn_field' ) ) {
     require_once( VIETMCN_PATH .'/App/Lib/class.field.php' );
 }
 //Import Boot 
-if ( ! class_exists('Vietmcn_boots' ) ) {
-    require_once( VIETMCN_PATH .'/App/vietmcn.boots.php' );
+if ( ! class_exists('Vietmcn_bootstrap' ) ) {
+    require_once( VIETMCN_PATH .'/App/vietmcn.bootstrap.php' );
 }
 
 //Đăng ký menu

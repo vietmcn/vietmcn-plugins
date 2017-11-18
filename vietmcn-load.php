@@ -17,6 +17,5 @@ if ( ! function_exists( 'add_filter' ) ) {
 if ( ! defined( 'VIETMCN_FILE' ) ) {
 	define( 'VIETMCN_FILE', __FILE__ );
 }
-
 // Load the Vietmcn Plugins
 require_once dirname( VIETMCN_FILE ) . '/vietmcn-main.php';
