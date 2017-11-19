@@ -12,7 +12,7 @@ class Vietmcn_bootstrap
         $vietmcn_option = get_option( 'vietmcn_add_option_item' );
 
         //import models Count Down Time
-        if ( ! class_exists( 'Vietmcn_time_models' ) ) {
+        if ( ! class_exists( 'Vietmcn_time_boots' ) ) {
             require_once VIETMCN_PATH .'/App/Models/Time-countdown/class.time-boot.php';
             new Vietmcn_time_boots( $vietmcn_option );
         }
@@ -20,6 +20,11 @@ class Vietmcn_bootstrap
         if ( ! class_exists( 'Vietmcn_removebar_boots' ) ) {
             require_once VIETMCN_PATH .'/App/Models/Remove-bar/class.removebar-boots.php';
             new Vietmcn_removebar_boots( $vietmcn_option );
+        }
+        //import models Count Down Time
+        if ( ! class_exists( 'Vietmcn_customer_order_boots' ) ) {
+            require_once VIETMCN_PATH .'/App/Models/Customer-order/class.order-boots.php';
+            new Vietmcn_customer_order_boots( $vietmcn_option );
         }
     }
 }
