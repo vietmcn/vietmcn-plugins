@@ -17,5 +17,30 @@ if ( ! function_exists( 'add_filter' ) ) {
 if ( ! defined( 'VIETMCN_FILE' ) ) {
 	define( 'VIETMCN_FILE', __FILE__ );
 }
+if ( ! function_exists( 'vietmcn_is_woocommerce' ) ) {
+	/**
+	 * Query WooCommerce activation
+	 */
+	function vietmcn_is_woocommerce() {
+		return class_exists( 'WooCommerce' ) ? true : false;
+	}
+}
+
+/**
+ * Checks if the current page is a product archive
+ * @return boolean
+ */
+function vietmcn_is_product_archive() {
+	if ( vietmcn_is_woocommerce() ) {
+		if ( is_shop() || is_product_taxonomy() || is_product_category() || is_product_tag() ) {
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
 // Load the Vietmcn Plugins
 require_once dirname( VIETMCN_FILE ) . '/vietmcn-main.php';

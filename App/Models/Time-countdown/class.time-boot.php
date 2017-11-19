@@ -1,11 +1,11 @@
 <?php 
 class Vietmcn_time_boots extends Vietmcn_models
 {
-    public function __construct()
+    public function __construct( $option = null )
     {
         add_action( 'wp_enqueue_scripts', array( $this, 'time_script' ) );
         add_action( 'wp_footer', array( $this, 'time_script_print' ) );
-        self::get_time_wc();
+        self::get_time_wc( $option );
     }
     public function time_script()
     {
@@ -37,7 +37,7 @@ class Vietmcn_time_boots extends Vietmcn_models
             'version' => '0.1',
         ) );
     }
-    public static function get_time_wc()
+    private static function get_time_wc( $option = null )
     {
         //import
         if ( ! class_exists( 'Vietmcn_time_shortcode' ) ) {
@@ -49,11 +49,7 @@ class Vietmcn_time_boots extends Vietmcn_models
         if ( ! class_exists( 'Vietmcn_time_wc_models' ) ) {
             // Load the Vietmcn Plugins
             require_once dirname( VIETMCN_FILE ) . '/App/Models/Time-countdown/class.time-wc.php';
-            new Vietmcn_time_wc_models();
+            new Vietmcn_time_wc_models( $option );
         }
-    }
-    public static function time_version()
-    {
-        return '0.1';
     }
 }
