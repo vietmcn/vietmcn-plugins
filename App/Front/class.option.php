@@ -17,6 +17,7 @@ class Vietmcn_front_option
                             get_settings_errors( 'vietmcn_plugins_option' );
                             settings_errors( 'vietmcn_plugins_option' );                    
                             self::option_content_plugins();
+                            do_action( 'vietmcn_option_field' );
                         ?>
                     </form>
                     <?php self::option_content_credit();?>
@@ -42,7 +43,7 @@ class Vietmcn_front_option
         $out  = '<article id="page1" class="show top">';
         $out .= Vietmcn_time_boots::get_option( $vietmcn_option );
         $out .= Vietmcn_removebar_boots::get_option( $vietmcn_option );
-        $out .= Vietmcn_removebar_boots::get_option( $vietmcn_option );
+        #$out .= do_action( 'vietmcn_option_field' );
         $out .= '<button type="submit"> Lưu Lại</button>';
         $out .= '</article>';
         echo $out;

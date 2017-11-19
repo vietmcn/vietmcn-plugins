@@ -1,29 +1,35 @@
 <?php 
 class Vietmcn_customer_order_boots extends Vietmcn_boots
 {
-    public function __construct( $options = null )
+    public function __construct()
     {
-        $hook = apply_filters( 'vietmcn_order_count_namehook', $type = 'woocommerce_single_product_summary' );
-        $number = apply_filters( 'vietmcn_order_count_namehook_position', $type= '11' );
-        add_action( $hook, 'vietmcn_product_sold_count', $number );        
+        add_action( 'vietmcn_option_field', array( $this, 'get_option' ) );
     }
-    public static function get_option( $options )
+    public function get_option()
     {
+        $options = $this->options();
+
         $product_count_order = ( isset( $options['product_count_order'] ) ) ? $options['product_count_order'] : '';
 
-        return Vietmcn_field::get_field( array(
-            'option_checked' => $product_count_order,
-            'option_key' => 'product_count_order',
-            'option_bg' => 'rgb(197, 69, 58)',
-            'option_icon' => 'ion-minus',
-            'option_field_type' => array( 
-                'checkbox' => true,
-            ),
-            'option_field_title' => 'Tùy chọn hiển thị',
-            'title' => 'Ẩn thanh Adminbar',
-            'desc' => 'Models khi bật lên sẽ ẩn thanh Adminbar của Wordpress.',
-            'desc_popup' => 'Mặc định là không',
+        echo Vietmcn_field::get_field( array(
+            'title' => 'Time CountDown',
+            'desc' => 'Models gọi thời gian kết thúc giảm ra ngoài trang chú hoặc trang xem chi tiết sản phẩm.',
             'version' => '0.1',
+            'option' => array(
+                'key' => 'time_countdown',
+                'icon' => 'ion-ios-timer-outline',
+                'checked' => $product_count_order,
+                'desc_popup' => 'Tick vào để chọn không hiển thị ở trang danh mục sản phẩm.',
+                'field' => array(
+                    'title' => 'Tùy chọn hiển thị',
+                    'checkbox' => true,
+                    'shortcode' => true,
+                ),
+                'shortcode' => array(
+                    'content' => '[time_down date="YY/MM/DD"/]',
+                    'desc' => 'Sử dụng shortcode này để hiển thị ở một trang bất kỳ mà bạn muốn.<br/> <b>Kiểu Năm/Tháng/Ngày</b>.',
+                ),
+            ),
         ) );
     }
 }
