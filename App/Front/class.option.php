@@ -20,7 +20,7 @@ class Vietmcn_front_option
                             get_settings_errors( 'vietmcn_plugins_option' );
                             settings_errors( 'vietmcn_plugins_option' );                    
                         ?>
-                        <article id="page1" class="show top">
+                        <article id="page1" class="show top scrollbar-inner">
                             <?php 
                             /** Hooked */
                                 do_action( 'vietmcn_option_hook' );

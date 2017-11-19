@@ -7,7 +7,6 @@ jQuery(document).ready(function($){
         $(this).parent().addClass('block').next().slideToggle('fast');
     });
     $('.vietmcn-option-dropdown-item').slideUp('fast');
-
   //Menu Tab
     var item_num = $('nav li').length + 1;
     var btn_state = true;
