@@ -2,21 +2,23 @@
 class Vietmcn_time_boots extends Vietmcn_boots
 {
     public function __construct( $option = null )
-    {
+    {   
+        self::$options = $option;
+
         add_action( 'wp_enqueue_scripts', array( $this, 'time_script' ) );
         add_action( 'wp_footer', array( $this, 'time_script_print' ) );
-
-        $out  = $this->import_models( array(
+        add_action ( 'vietmcn_option_hook', array( $this, 'get_option' ) );
+        
+        $this->import_models( array(
             'Class' => 'Vietmcn_time_shortcode',
             'require' => 'Time-countdown/class.time-shortcode',
         ) );
-        $out .= $this->import_models( array(
+        $this->import_models( array(
             'Class' => 'Vietmcn_time_wc_models',
             'require' => 'Time-countdown/class.time-wc',
-            'option' => $option,
+            'option' => self::$options,
         ) );
-        // Get field
-        return $out;
+       
     }
     public function time_script()
     {
@@ -26,11 +28,11 @@ class Vietmcn_time_boots extends Vietmcn_boots
     {
         ?><script type='text/javascript'>jQuery(document).ready(function(a){a('[data-countdown]').each(function(){var b=a(this),c=a(this).data('countdown');b.countdown(c,function(d){b.html(d.strftime('Còn %D ng\xE0y %H:%M:%S'))})})});</script><?php
     }
-    public static function get_option( $options )
+    public function get_option()
     {
-        $checked = ( isset( $options['time_countdown'] ) ) ? $options['time_countdown'] : '';
+        $checked = ( isset( self::$options['time_countdown'] ) ) ? self::$options['time_countdown'] : '';
 
-        return Vietmcn_field::get_field( array(
+        $out = Vietmcn_field::get_field( array(
             'title' => 'Time CountDown',
             'desc' => 'Models gọi thời gian kết thúc giảm ra ngoài trang chú hoặc trang xem chi tiết sản phẩm.',
             'version' => '0.1',
@@ -50,5 +52,6 @@ class Vietmcn_time_boots extends Vietmcn_boots
                 ),
             ),
         ) );
+        echo $out;
     }
 }

@@ -1,6 +1,8 @@
 <?php 
 class Vietmcn_boots
 {
+    public static $options;
+    
     public function __construct()
     {
 
