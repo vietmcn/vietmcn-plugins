@@ -1,5 +1,5 @@
 <?php 
-class Vietmcn_removebar_boots extends Vietmcn_models
+class Vietmcn_removebar_boots extends Vietmcn_boots
 {
     public function __construct( $options )
     {
@@ -10,23 +10,25 @@ class Vietmcn_removebar_boots extends Vietmcn_models
             //not think
         }
     }
-    public static function get_bar_option( $options )
+    public static function get_option( $options )
     {
-        $remove_bar = ( isset( $options['remove_bar'] ) ) ? $options['remove_bar'] : '';
+        $checked = ( isset( $options['remove_bar'] ) ) ? $options['remove_bar'] : '';
 
         return Vietmcn_field::get_field( array(
-            'option_checked' => $remove_bar,
-            'option_key' => 'remove_bar',
-            'option_bg' => 'rgb(197, 69, 58)',
-            'option_icon' => 'ion-minus',
-            'option_field_type' => array( 
-                'checkbox' => true,
-            ),
-            'option_field_title' => 'Tùy chọn hiển thị',
             'title' => 'Ẩn thanh Adminbar',
             'desc' => 'Models khi bật lên sẽ ẩn thanh Adminbar của Wordpress.',
-            'desc_popup' => 'Mặc định là không',
             'version' => '0.1',
+            'option' => array(
+                'key' => 'remove_bar',
+                'color' => 'rgb(197, 69, 58)',
+                'icon' => 'ion-minus',
+                'desc_popup' => 'Mặc định là không',
+                'field' => array(
+                    'title' => 'Tùy chọn hiển thị',
+                    'checkbox' => true,
+                ),
+                'checked' => $checked,
+            ),
         ) );
     }
 }

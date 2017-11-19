@@ -24,14 +24,6 @@ function vietmcn_print_script() {
 }
 add_action( 'wp_enqueue_scripts', 'vietmcn_print_script' );
 
-//Import Lib
-if ( ! class_exists(  'Vietmcn_models' ) ) {
-    require_once( VIETMCN_PATH .'App/Lib/class.models.php' );
-}
-//Import Lib
-if ( ! class_exists(  'Vietmcn_field' ) ) {
-    require_once( VIETMCN_PATH .'App/Lib/class.field.php' );
-}
 //Import Boot 
 if ( ! class_exists('Vietmcn_bootstrap' ) ) {
     require_once( VIETMCN_PATH .'App/class.bootstrap.php' );
