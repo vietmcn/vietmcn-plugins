@@ -18,7 +18,7 @@ class Vietmcn_front_option
                             settings_fields( 'vietmcn_plugins_option' );
                             do_settings_sections( 'vietmcn_plugins_option' );
                             get_settings_errors( 'vietmcn_plugins_option' );
-                            settings_errors( 'vietmcn_plugins_option' );                    
+                            settings_errors( 'vietmcn_plugins_option' );          
                         ?>
                         <article id="page1" class="show top scrollbar-inner">
                             <?php 

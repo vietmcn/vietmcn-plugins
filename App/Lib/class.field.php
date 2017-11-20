@@ -3,12 +3,13 @@ class Vietmcn_field
 {
     public static function field_checkbox( $att = array() )
     {
-        $checked = ( ! empty( $att['option']['checked'] ) ) ? 'checked' : '';
+        $checked = ( ! empty( $att['option']['checked'] ) == true ) ? 'checked' : '';
+        $multi = ( isset( $att['option']['field']['multi_input'] ) == true ) ? '[]' : '';
         //
         $out  = '<div class="col-left">';
         $out .= '<label class="cntr tooltip" data-variation="tiny" data-position="left center" data-html="'.$att['option']['desc_popup'].'">';
         $out .= '<span class="lbl"><i class="ion-ios-information-outline"></i>'.$att['option']['field']['title'].':</span>';
-        $out .= '<input name="vietmcn_add_option_item['.$att['option']['key'].']" class="hidden-xs-up" id="cbx" type="checkbox" '.$checked.' value="true">';
+        $out .= '<input name="vietmcn_add_option_item['.$att['option']['key'].']'.$multi.'" class="hidden-xs-up" id="cbx" type="checkbox" '.$checked.' value="true">';
         $out .= '<span class="cbx"></span>';
         $out .= '</label>';
         $out .= '</div>';
@@ -16,15 +17,25 @@ class Vietmcn_field
     }
     public static function field_shortcode( $att = array() )
     {
-        $out  = '<div class="ui tooltip col-right" data-variation="tiny" data-position="left center" data-title="Shortcode" data- data-html="'.$att['option']['shortcode']['desc'].'">';
+        $out  = '<div class="ui tooltip col-right" data-variation="tiny" data-position="left center" data-title="Shortcode" data-html="'.$att['option']['shortcode']['desc'].'">';
         $out .= '<label><i class="ion-gear-a"></i> Shortcode:</label>';
         $out .= '<span class="vietmcn-shortcode">'.$att['option']['shortcode']['content'].'</span>';
         $out .= '</div>';
         return $out;
     }
-    public static function field_input()
+    public static function field_textbox( $att = array() )
     {
-        
+        $multi = ( isset( $att['option']['field']['multi_input'] ) == true ) ? '[]' : '';
+
+        $out  = '<div class="vietmcn_option_textbox col-right">';
+        $out .= '<label class="tooltip" data-variation="tiny" data-position="left center" data-html="'.$att['option']['field']['desc'].'"><i class="ion-gear-a"></i> Name:</label>';
+        $out .= '<input id="hello" type="text" name="vietmcn_add_option_item['.$att['option']['key'].']'.$multi.'" value="'.$att['option']['text_value'].'" />';
+        $out .= '</div>';
+        return $out;
+    }
+    public static function field_texbox_muil()
+    {
+
     }
     private static function option_dropdown( $att = array() )
     {
@@ -37,6 +48,11 @@ class Vietmcn_field
         if ( isset( $att['option']['field']['shortcode'] ) == true ) {
 
             $out .= self::field_shortcode( $att );
+
+        }
+        if ( isset( $att['option']['field']['textbox'] ) == true ) {
+
+            $out .= self::field_textbox( $att );
 
         }
         return $out;

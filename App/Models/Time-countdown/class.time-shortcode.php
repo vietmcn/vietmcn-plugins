@@ -10,6 +10,7 @@ class Vietmcn_time_shortcode extends Vietmcn_models
         $atts = shortcode_atts( array(
             'date' => '',
         ), $atts );
+        
         return '<div data-countdown="'.$atts['date'].'"></div>';
     }
 }
