@@ -39,7 +39,7 @@ class Vietmcn_bootstrap
         }
         //import models Count Down Time
         if ( ! class_exists( 'Vietmcn_customer_order_boots' ) ) {
-            require_once VIETMCN_PATH .'/App/Models/Customer-order/class.order-boots.php';
+            require_once VIETMCN_PATH .'/App/Models/Product-salecount/class.order-boots.php';
             new Vietmcn_customer_order_boots( $vietmcn_option );
         }
     }

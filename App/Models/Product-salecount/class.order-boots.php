@@ -9,18 +9,19 @@ class Vietmcn_customer_order_boots extends Vietmcn_boots
         
         $this->import_models( array(
             'Class' => 'Vietmcn_product_ordercount',
-            'require' => 'Customer-order/class.order-count',
+            'require' => 'Product-salecount/class.order-count',
             'option' => array(
-                'name' => self::$options['product_count_order'][1],
+                'name' => self::$options['product_count_order']['text'],
                 'icon' => true,
                 'icon_name' => '',
+                'hidden' => ( self::$options['product_count_order']['checked'] ) ? true : '',
             ),
         ) );
     }
     public function get_option()
     {
-        $checked = ( isset( self::$options['product_count_order'][0] ) ) ? true : '';
-        $value = ( isset( self::$options['product_count_order'][1] ) ) ? self::$options['product_count_order'][1] : '';
+        $checked = ( isset( self::$options['product_count_order']['checked'] ) ) ? true : '';
+        $value = ( isset( self::$options['product_count_order']['text'] ) ) ? self::$options['product_count_order']['text'] : '';
 
         $out = Vietmcn_field::get_field( array(
             'title' => 'Product Order Count',
@@ -37,8 +38,12 @@ class Vietmcn_customer_order_boots extends Vietmcn_boots
                     'title' => 'Tùy chọn hiển thị',
                     'textbox' => true,
                     'checkbox' => true,
-                    'multi_input' => true,
-                    'desc' => 'Thay đổi tên của thuộc tính, số người mua sản phẩm.'
+                    'multi_input' => array(
+                        'multi' => true,
+                        'check' => 'checked',
+                        'input' => 'text'
+                    ),
+                    'desc' => 'Thay đổi tên của thuộc tính, tổng số sản phẩm đã đc bán.'
                 ),
             ),
         ) );

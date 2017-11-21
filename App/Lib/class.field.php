@@ -4,7 +4,11 @@ class Vietmcn_field
     public static function field_checkbox( $att = array() )
     {
         $checked = ( ! empty( $att['option']['checked'] ) == true ) ? 'checked' : '';
-        $multi = ( isset( $att['option']['field']['multi_input'] ) == true ) ? '[]' : '';
+        if ( isset( $att['option']['field']['multi_input']['multi'] ) == true ) {
+            $multi = '['.$att['option']['field']['multi_input']['check'].']';
+        } else {
+            $multi = '';
+        }
         //
         $out  = '<div class="col-left">';
         $out .= '<label class="cntr tooltip" data-variation="tiny" data-position="left center" data-html="'.$att['option']['desc_popup'].'">';
@@ -25,11 +29,15 @@ class Vietmcn_field
     }
     public static function field_textbox( $att = array() )
     {
-        $multi = ( isset( $att['option']['field']['multi_input'] ) == true ) ? '[]' : '';
+        if ( isset( $att['option']['field']['multi_input']['multi'] ) == true ) {
+            $input = '['.$att['option']['field']['multi_input']['input'].']';
+        } else {
+            $input = '';
+        }
 
         $out  = '<div class="vietmcn_option_textbox col-right">';
         $out .= '<label class="tooltip" data-variation="tiny" data-position="left center" data-html="'.$att['option']['field']['desc'].'"><i class="ion-gear-a"></i> Name:</label>';
-        $out .= '<input id="hello" type="text" name="vietmcn_add_option_item['.$att['option']['key'].']'.$multi.'" value="'.$att['option']['text_value'].'" />';
+        $out .= '<input id="hello" type="text" name="vietmcn_add_option_item['.$att['option']['key'].']'.$input.'" value="'.$att['option']['text_value'].'" />';
         $out .= '</div>';
         return $out;
     }
