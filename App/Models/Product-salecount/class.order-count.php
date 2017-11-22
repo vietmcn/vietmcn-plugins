@@ -12,7 +12,7 @@ class Vietmcn_product_ordercount extends Vietmcn_models
     }
     public function vietmcn_product_sold_count()
     {
-        global $product, $post;
+        global $product;
         
         if ( isset( self::$options['hidden'] ) != true ) {
 

@@ -14,15 +14,12 @@ class Vietmcn_customer_order_boots extends Vietmcn_boots
                 'name' => self::$options['product_count_order']['text'],
                 'icon' => true,
                 'icon_name' => '',
-                'hidden' => ( self::$options['product_count_order']['checked'] ) ? true : '',
+                'hidden' => ( isset( self::$options['product_count_order']['checked'] ) ) ? true : '',
             ),
         ) );
     }
     public function get_option()
     {
-        $checked = ( isset( self::$options['product_count_order']['checked'] ) ) ? true : '';
-        $value = ( isset( self::$options['product_count_order']['text'] ) ) ? self::$options['product_count_order']['text'] : '';
-
         $out = Vietmcn_field::get_field( array(
             'title' => 'Product Order Count',
             'desc' => 'Models Hiển thị tổng số người đã mua trên từng sản phẩm.',
@@ -30,8 +27,8 @@ class Vietmcn_customer_order_boots extends Vietmcn_boots
             'option' => array(
                 'key' => 'product_count_order',
                 'icon' => 'ion-android-contacts',
-                'checked' => $checked,
-                'text_value' => $value,
+                'checked' => ( isset( self::$options['product_count_order']['checked'] ) ) ? true : '',
+                'text_value' => ( isset( self::$options['product_count_order']['text'] ) ) ? self::$options['product_count_order']['text'] : '',
                 'desc_popup' => 'Tick vào để chọn không hiển thị ở trang danh mục sản phẩm.',
                 'color' => 'rgb(236, 193, 78)',
                 'field' => array(
