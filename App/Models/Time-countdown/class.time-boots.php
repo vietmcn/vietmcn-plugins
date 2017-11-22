@@ -22,7 +22,7 @@ class Vietmcn_time_boots extends Vietmcn_boots
     }
     public function time_script()
     {
-        wp_enqueue_script( 'vietmcn-models-time', VIETMCN_URL . 'App/Models/Time-countdown/time.min.js', array('jquery'), VIETMCN_VERSION, true );
+        wp_enqueue_script( 'vietmcn-models-time', VIETMCN_URL . 'App/Public/Js/lib/Time-countdown/time.min.js', array('jquery'), VIETMCN_VERSION, true );
     }
     public function time_script_print()
     {
