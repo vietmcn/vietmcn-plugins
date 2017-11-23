@@ -11,7 +11,7 @@ class Vietmcn_boots
     {
         return get_option( 'vietmcn_add_option_item' );
     }
-    public function import_models( $att = array() )
+    public function import( $att = array() )
     {
         $options = ( isset( $att['option'] ) ) ? $att['option'] : null;
         //import

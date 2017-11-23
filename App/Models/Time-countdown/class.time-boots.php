@@ -9,11 +9,11 @@ class Vietmcn_time_boots extends Vietmcn_boots
         add_action( 'wp_footer', array( $this, 'time_script_print' ) );
         add_action ( 'vietmcn_option_hook', array( $this, 'get_option' ) );
         
-        $this->import_models( array(
+        $this->import( array(
             'Class' => 'Vietmcn_time_shortcode',
             'require' => 'Time-countdown/class.time-shortcode',
         ) );
-        $this->import_models( array(
+        $this->import( array(
             'Class' => 'Vietmcn_time_wc_models',
             'require' => 'Time-countdown/class.time-wc',
             'option' => self::$options,

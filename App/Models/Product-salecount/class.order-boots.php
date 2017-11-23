@@ -7,7 +7,7 @@ class Vietmcn_customer_order_boots extends Vietmcn_boots
 
         add_action( 'vietmcn_option_hook', array( $this, 'get_option' ) );
         
-        $this->import_models( array(
+        $this->import( array(
             'Class' => 'Vietmcn_product_ordercount',
             'require' => 'Product-salecount/class.order-count',
             'option' => array(

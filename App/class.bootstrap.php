@@ -42,6 +42,11 @@ class Vietmcn_bootstrap
             require_once VIETMCN_PATH .'/App/Models/Product-salecount/class.order-boots.php';
             new Vietmcn_customer_order_boots( $vietmcn_option );
         }
+        //import models Count Down Time
+        if ( ! class_exists( 'Vietmcn_product_filter_boots' ) ) {
+            require_once VIETMCN_PATH .'/App/Models/Product-filter/class.filter-boots.php';
+            new Vietmcn_product_filter_boots( $vietmcn_option );
+        }
     }
 }
 //Return Object
